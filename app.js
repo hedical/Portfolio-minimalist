@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("main").hide()
     $("#projects").hide()
     $("#experience").hide()
+    $("#up").hide()
     loadingAnimation()
 
     function loadingAnimation() {
@@ -13,9 +14,16 @@ $(document).ready(function () {
         }, 3000)
     }
 
-    $("#terminal").on("click", function () {
-        $("#projects").show()
-        $("#experience").show()
-    })
+    window.onscroll = function (ev) {
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            $("#up").show()
+            $("#down").hide()
+        } else {
+            $("#up").hide()
+            $("#down").show()
+        }
+
+
+    };
 
 })
